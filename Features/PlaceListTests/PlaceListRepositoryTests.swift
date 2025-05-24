@@ -6,8 +6,9 @@
 //
 
 import XCTest
-import Nimble
+@preconcurrency import Nimble
 
+@MainActor
 final class PlaceListRepositoryTests: XCTestCase {
     
     var placeListRepository: PlaceListRepository!

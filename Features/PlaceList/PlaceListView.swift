@@ -21,6 +21,7 @@ public struct PlaceListView: View {
             list
         }
         .onAppear {
+            viewModel.fetchPlaces()
         }
     }
     
