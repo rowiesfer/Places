@@ -10,14 +10,12 @@ import XCTest
 
 @MainActor
 final class PlaceListRepositoryTests: XCTestCase {
-    
-    var placeListRepository: PlaceListRepository!
-    
+        
     /// This is a simple test to check if my entities are correctly setup and the 4 iteams of the sample response can be parsed
     func testGetPlaceList_returnsPlacesWithoutErrors() async throws {
         // Arrange
         let data = try Data(contentsOf: Bundle(for: PlaceListRepositoryTests.self).url(forResource: "locations", withExtension: "json")!)
-        placeListRepository = .init(placeListData: data)
+        let placeListRepository = PlaceListRepository(client: PlaceAPIClientMock(data: data))
         
         // Act
         let places = try await placeListRepository.getPlaceList()

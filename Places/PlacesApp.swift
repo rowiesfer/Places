@@ -10,9 +10,13 @@ import PlaceList
 
 @main
 struct PlacesApp: App {
+    
+    // TODO: get from config file
+    let url = URL(string: "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main")!
+
     var body: some Scene {
         WindowGroup {
-            PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub()))
+            PlaceListFactory().newPlaceListView(baseURL: url)
         }
     }
 }
