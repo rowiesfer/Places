@@ -64,5 +64,5 @@ public struct PlaceListView: View {
 }
 
 #Preview {
-    PlaceListView(viewModel: PlaceListViewModel())
+    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub()))
 }

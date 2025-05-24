@@ -12,7 +12,7 @@ import PlaceList
 struct PlacesApp: App {
     var body: some Scene {
         WindowGroup {
-            PlaceListView(viewModel: PlaceListViewModel())
+            PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub()))
         }
     }
 }
