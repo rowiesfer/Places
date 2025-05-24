@@ -10,6 +10,7 @@
 		C16E66B72DE0C01900697384 /* PlaceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16E66AE2DE0C01800697384 /* PlaceList.framework */; };
 		C16E66C12DE0C01900697384 /* PlaceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16E66AE2DE0C01800697384 /* PlaceList.framework */; };
 		C16E66C22DE0C01900697384 /* PlaceList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16E66AE2DE0C01800697384 /* PlaceList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C16E67952DE2031E00697384 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C16E67942DE2031E00697384 /* Nimble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16E66B72DE0C01900697384 /* PlaceList.framework in Frameworks */,
+				C16E67952DE2031E00697384 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +293,7 @@
 			);
 			name = PlaceListTests;
 			packageProductDependencies = (
+				C16E67942DE2031E00697384 /* Nimble */,
 			);
 			productName = PlaceListTests;
 			productReference = C16E66B62DE0C01900697384 /* PlaceListTests.xctest */;
@@ -335,6 +338,9 @@
 			);
 			mainGroup = C16E66762DE0BBDA00697384;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C16E67932DE2031400697384 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C16E66802DE0BBDA00697384 /* Products */;
 			projectDirPath = "";
@@ -853,6 +859,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C16E67932DE2031400697384 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C16E67942DE2031E00697384 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C16E67932DE2031400697384 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C16E66772DE0BBDA00697384 /* Project object */;
 }
