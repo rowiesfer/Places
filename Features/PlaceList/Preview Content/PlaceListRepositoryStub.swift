@@ -4,7 +4,7 @@
 //
 //  Created by Fer on 24/05/2025.
 //
-
+#if DEBUG
 
 public struct PlaceListRepositoryStub: PlaceListRepositoryProtocol {
     
@@ -19,3 +19,5 @@ public struct PlaceListRepositoryStub: PlaceListRepositoryProtocol {
         ]
     }
 }
+
+#endif
