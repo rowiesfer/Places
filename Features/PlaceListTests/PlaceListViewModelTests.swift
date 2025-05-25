@@ -64,7 +64,7 @@ final class PlaceListViewModelTests: XCTestCase {
 
         // Assert
         await expect(viewModel.viewState.places.first?.title).toEventually(equal("Amsterdam"))
-        await expect(viewModel.viewState.places.first?.subtitle).toEventually(equal("latitude: 52.3547498, longitude: 4.8339215"))
+        await expect(viewModel.viewState.places.first?.subtitle).toEventually(equal("placelist.place.latitude: 52.3547498, placelist.place.longitude: 4.8339215"))
     }
     
     func testFetchPlaces_whenPlacesDoesNotHaveName_mapsToViewStateWithoutTitle() async {
@@ -79,7 +79,7 @@ final class PlaceListViewModelTests: XCTestCase {
 
         // Assert
         await expect(viewModel.viewState.places.first?.title).toEventually(equal(""))
-        await expect(viewModel.viewState.places.first?.subtitle).toEventually(equal("latitude: 40.4380638, longitude: -3.7495758"))
+        await expect(viewModel.viewState.places.first?.subtitle).toEventually(equal("placelist.place.latitude: 40.4380638, placelist.place.longitude: -3.7495758"))
     }
 
 }

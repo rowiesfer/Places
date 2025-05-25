@@ -15,7 +15,7 @@ public final class PlaceListViewModel: ObservableObject {
         self.repository = repository
     }
     
-    @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: "Loading places.", places: [])
+    @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: "placelist.message.loading".localized, places: [])
     
     func fetchPlaces() {
         Task {
@@ -26,7 +26,7 @@ public final class PlaceListViewModel: ObservableObject {
                                   places: mapPlacesToViewData(places: places))
             } catch {
                 viewState = .init(loadingState: .error,
-                                  messageText: "Error while fetching places.",
+                                  messageText: "placelist.message.error".localized,
                                   places: [])
             }
         }
@@ -36,7 +36,7 @@ public final class PlaceListViewModel: ObservableObject {
         let placesViewData = places.map { place in
             return PlaceListViewState.PlaceViewData(id: "\(place.latitude)|\(place.longitude)",
                                                     title: place.name ?? "",
-                                                    subtitle: "latitude: \(place.latitude), longitude: \(place.longitude)")
+                                                    subtitle: "\("placelist.place.latitude".localized): \(place.latitude), \("placelist.place.longitude".localized): \(place.longitude)")
         }
         return placesViewData
     }

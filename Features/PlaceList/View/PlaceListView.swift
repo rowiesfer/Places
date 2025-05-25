@@ -4,6 +4,7 @@
 //
 //  Created by Fer on 23/05/2025.
 //
+
 import SwiftUI
 
 public struct PlaceListView: View {
@@ -27,11 +28,11 @@ public struct PlaceListView: View {
     
     @ViewBuilder
     private var title: some View {
-        Text("Places")
+        Text(localized: "placelist.title")
             .font(.largeTitle)
             .fontWeight(.bold)
             .padding(.top)
-        Text("Tap on a place below to open it in the Wikipedia app")
+        Text(localized: "placelist.subtitle")
             .font(.caption)
             .fontWeight(.bold)
     }
