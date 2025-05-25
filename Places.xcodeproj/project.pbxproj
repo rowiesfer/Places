@@ -105,9 +105,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				PlaceListTests/locations.json,
+				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
+				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
-				PlaceListTests/PlaceAPIClientMock.swift,
-				PlaceListTests/PlaceListRepositoryMock.swift,
 				PlaceListTests/PlaceListRepositoryTests.swift,
 				PlaceListTests/PlaceListViewModelTests.swift,
 			);
@@ -123,9 +123,9 @@
 				PlaceList/ViewModel/PlaceListViewModel.swift,
 				PlaceList/ViewModel/PlaceListViewState.swift,
 				PlaceListTests/locations.json,
+				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
+				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
-				PlaceListTests/PlaceAPIClientMock.swift,
-				PlaceListTests/PlaceListRepositoryMock.swift,
 				PlaceListTests/PlaceListRepositoryTests.swift,
 				PlaceListTests/PlaceListViewModelTests.swift,
 			);
