@@ -7,6 +7,5 @@
 
 @MainActor
 public protocol WikipediaDeepLinkOpenerProtocol {
-    func deepLinkToPlaces(at place: Place) async
+    func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async
 }
-

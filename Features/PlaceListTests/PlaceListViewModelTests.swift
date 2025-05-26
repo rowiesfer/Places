@@ -94,7 +94,9 @@ final class PlaceListViewModelTests: XCTestCase {
         viewModel.placeTapped(id: viewModel.viewState.places.first!.id)
 
         // Assert
-        await expect(wikipediaDeepLinkOpenerMock.place).toEventually(equal(place))
+        await expect(wikipediaDeepLinkOpenerMock.name).toEventually(equal(place.name))
+        await expect(wikipediaDeepLinkOpenerMock.latitude).toEventually(equal(place.latitude))
+        await expect(wikipediaDeepLinkOpenerMock.longitude).toEventually(equal(place.longitude))
     }
 
 }

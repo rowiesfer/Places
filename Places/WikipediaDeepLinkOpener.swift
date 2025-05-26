@@ -12,8 +12,8 @@ struct WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
 
     private let deepLinkOpener: DeepLinkOpenerProtocol = DeepLinkOpener()
     
-    @MainActor func deepLinkToPlaces(at place: Place) async {
-        if let url = URL(string: "wikipedia://places?name=\(place.name ?? "")&lat=\(place.latitude)&lon=\(place.longitude)") {
+    @MainActor func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async {
+        if let url = URL(string: "wikipedia://places?name=\(name ?? "")&lat=\(latitude)&lon=\(longitude)") {
             await deepLinkOpener.open(url, options: [:])
         }
     }

@@ -8,7 +8,7 @@
 
 @MainActor
 class WikipediaDeepLinkOpenerStub: WikipediaDeepLinkOpenerProtocol {
-    func deepLinkToPlaces(at place: Place) { }
+    func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async { }
 }
 
 #endif

@@ -8,9 +8,13 @@
 @MainActor
 class WikipediaDeepLinkOpenerMock: WikipediaDeepLinkOpenerProtocol {
 
-    private(set) var place: Place? = nil
+    private(set) var name: String? = nil
+    private(set) var latitude: Double = 0
+    private(set) var longitude: Double = 0
     
-    func deepLinkToPlaces(at place: Place) {
-        self.place = place
+    func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async {
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }

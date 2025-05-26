@@ -5,7 +5,7 @@
 //  Created by Fer on 24/05/2025.
 //
 
-public struct Place: Codable, Identifiable, Sendable, Equatable {
+public struct Place: Codable, Identifiable {
     public let name: String?
     public let latitude: Double
     public let longitude: Double
