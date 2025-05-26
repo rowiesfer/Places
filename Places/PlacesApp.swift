@@ -16,7 +16,7 @@ struct PlacesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PlaceListFactory().newPlaceListView(baseURL: url)
+            PlaceListFactory().newPlaceListView(baseURL: url, wikipedia: WikipediaDeepLinkOpener())
         }
     }
 }

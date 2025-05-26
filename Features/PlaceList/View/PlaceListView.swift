@@ -68,5 +68,5 @@ public struct PlaceListView: View {
 }
 
 #Preview {
-    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub(), wikipedia: WikipediaDeepLinkOpener()))
+    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub(), wikipedia: WikipediaDeepLinkOpenerStub()))
 }

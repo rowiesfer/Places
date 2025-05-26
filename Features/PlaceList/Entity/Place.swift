@@ -6,9 +6,9 @@
 //
 
 public struct Place: Codable, Identifiable, Sendable, Equatable {
-    let name: String?
-    let latitude: Double
-    let longitude: Double
+    public let name: String?
+    public let latitude: Double
+    public let longitude: Double
     
     private enum CodingKeys: String, CodingKey {
         case name

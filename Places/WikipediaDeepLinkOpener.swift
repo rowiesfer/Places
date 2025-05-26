@@ -5,9 +5,9 @@
 //  Created by Fer on 26/05/2025.
 //
 
-// TODO: Move this implementation into the main app module
 import Foundation
 import UIKit
+import PlaceList
 
 struct WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
 
