@@ -18,7 +18,7 @@ final class WikipediaDeepLinkOpenerTests: XCTestCase {
         let wikipedia = WikipediaDeepLinkOpener(deepLinkOpener: deepLinkOpenerMock)
         
         // Act
-        await wikipedia.deepLinkToPlaces(name: "Amsterdam", latitude: 123.123, longitude: -3.1234)
+        try await wikipedia.deepLinkToPlaces(name: "Amsterdam", latitude: 123.123, longitude: -3.1234)
         
         // Assert
         await expect(deepLinkOpenerMock.url).toEventually(equal(url))
@@ -31,9 +31,22 @@ final class WikipediaDeepLinkOpenerTests: XCTestCase {
         let wikipedia = WikipediaDeepLinkOpener(deepLinkOpener: deepLinkOpenerMock)
         
         // Act
-        await wikipedia.deepLinkToPlaces(name: nil, latitude: 123.123, longitude: -3.1234)
+        try await wikipedia.deepLinkToPlaces(name: nil, latitude: 123.123, longitude: -3.1234)
         
         // Assert
         await expect(deepLinkOpenerMock.url).toEventually(equal(url))
     }
+    
+    func testDeepLinkToPlaces_whenDeepLinkIsNotSupported_throwsError() async throws {
+        // Arrange
+        let deepLinkOpenerMock = DeepLinkOpenerMock()
+        deepLinkOpenerMock.success = false
+        let wikipedia = WikipediaDeepLinkOpener(deepLinkOpener: deepLinkOpenerMock)
+        
+        // Act and Assert
+        await expect {
+            try await wikipedia.deepLinkToPlaces(name: "", latitude: 123.123, longitude: -3.1234)
+        }.to(throwError())
+    }
+
 }

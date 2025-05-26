@@ -46,10 +46,16 @@ public final class PlaceListViewModel: ObservableObject {
     }
 
     func placeTapped(id: String) {
-        guard let place = places.filter({ $0.id == id }).first else { return }
+        guard let place = places.filter({ $0.id == id }).first else {
+            // TODO: show error
+            return
+        }
+
         Task {
             do {
-                await wikipedia.deepLinkToPlaces(name: place.name, latitude: place.latitude, longitude: place.longitude)
+                try await wikipedia.deepLinkToPlaces(name: place.name, latitude: place.latitude, longitude: place.longitude)
+            } catch {
+                // TODO: show error
             }
         }
     }

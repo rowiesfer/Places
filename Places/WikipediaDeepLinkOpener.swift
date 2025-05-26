@@ -16,15 +16,22 @@ struct WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
         self.deepLinkOpener = deepLinkOpener
     }
 
-    @MainActor func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async {
+    @MainActor func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async throws {
 
         var urlString = "wikipedia://places?lat=\(latitude)&lon=\(longitude)"
         if let name = name {
             urlString.append("&name=\(name)")
         }
 
-        if let url = URL(string: urlString) {
-            await deepLinkOpener.open(url)
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL, userInfo: [NSLocalizedDescriptionKey : urlString])
         }
+
+        let success = await deepLinkOpener.open(url)
+
+        guard success == true else {
+            throw URLError(.unsupportedURL)
+        }
+
     }
 }
