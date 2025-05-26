@@ -13,10 +13,11 @@ struct PlacesApp: App {
     
     // TODO: get from config file
     let url = URL(string: "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main")!
+    let wikipedia = WikipediaDeepLinkOpener(deepLinkOpener: DeepLinkOpener())
 
     var body: some Scene {
         WindowGroup {
-            PlaceListFactory().newPlaceListView(baseURL: url, wikipedia: WikipediaDeepLinkOpener())
+            PlaceListFactory().newPlaceListView(baseURL: url, wikipedia: wikipedia)
         }
     }
 }
