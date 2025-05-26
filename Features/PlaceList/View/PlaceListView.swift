@@ -58,6 +58,8 @@ public struct PlaceListView: View {
                             .padding(.bottom)
                         Spacer()
                     }
+                }.onTapGesture {
+                    viewModel.placeTapped(id: place.id)
                 }
             }
         }
@@ -66,5 +68,5 @@ public struct PlaceListView: View {
 }
 
 #Preview {
-    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub()))
+    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub(), wikipedia: WikipediaDeepLinkOpener()))
 }

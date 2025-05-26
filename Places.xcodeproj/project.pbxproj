@@ -108,6 +108,7 @@
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
 				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
+				PlaceListTests/Mocks/WikipediaDeepLinkOpenerMock.swift,
 				PlaceListTests/PlaceListRepositoryTests.swift,
 				PlaceListTests/PlaceListViewModelTests.swift,
 			);
@@ -122,20 +123,32 @@
 				PlaceList/Repository/PlaceListRepositoryProtocol.swift,
 				PlaceList/ViewModel/PlaceListViewModel.swift,
 				PlaceList/ViewModel/PlaceListViewState.swift,
+				PlaceList/WikipediaDeepLinkOpenerProtocol.swift,
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
 				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
+				PlaceListTests/Mocks/WikipediaDeepLinkOpenerMock.swift,
 				PlaceListTests/PlaceListRepositoryTests.swift,
 				PlaceListTests/PlaceListViewModelTests.swift,
 			);
 			target = C16E66B52DE0C01900697384 /* PlaceListTests */;
+		};
+		C176465E2DE4C0A7005E581A /* Exceptions for "Places" folder in "Places" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C16E667E2DE0BBDA00697384 /* Places */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C16E66812DE0BBDA00697384 /* Places */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C176465E2DE4C0A7005E581A /* Exceptions for "Places" folder in "Places" target */,
+			);
 			path = Places;
 			sourceTree = "<group>";
 		};
@@ -728,6 +741,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Places/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -755,6 +769,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Places/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

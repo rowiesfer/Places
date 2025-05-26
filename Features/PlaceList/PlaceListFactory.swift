@@ -15,7 +15,7 @@ public struct PlaceListFactory {
     // Poor man's dependency injection for now.
     @MainActor public func newPlaceListView(baseURL: URL) -> PlaceListView {
         let apiClient = PlacesAPIClient(baseURL: baseURL)
-        return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient)))
+        return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient), wikipedia: WikipediaDeepLinkOpener()))
     }
 
 }
