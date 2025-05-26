@@ -8,10 +8,10 @@
 import UIKit
 
 final class DeepLinkOpener: DeepLinkOpenerProtocol {
-    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any] = [:]) async -> Bool {
+    func open(_ url: URL) async -> Bool {
         await withCheckedContinuation { continuation in
             if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: options) { success in
+                UIApplication.shared.open(url, options: [:]) { success in
                     continuation.resume(returning: success)
                 }
             } else {
