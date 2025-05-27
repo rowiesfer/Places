@@ -18,9 +18,9 @@ public final class PlaceListFactory {
         self.wikipedia = wikipedia
     }
 
-    @MainActor public func newPlaceListView() -> PlaceListView {
+    @MainActor public func newPlaceListView(coordinator: PlaceListCoordinatorProtocol) -> PlaceListView {
         let apiClient = PlacesAPIClient(baseURL: baseURL)
-        return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient), wikipedia: wikipedia))
+        return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient), wikipedia: wikipedia, coordinator: coordinator))
     }
 
 }

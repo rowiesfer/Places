@@ -13,7 +13,7 @@ final class PlaceListViewModelTests: XCTestCase {
     
     func testLoadingState_isInitializedAsLoading() async  {
         // Arrange
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(), wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
 
         // Act
         //Do nothing: we want to test the initial view data state to be loading
@@ -30,7 +30,7 @@ final class PlaceListViewModelTests: XCTestCase {
             .init(name: "Copenhagen", latitude: 55.6713442, longitude: 12.523785),
             .init(name: "", latitude: 40.4380638, longitude: -3.7495758)
         ]
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
 
         // Act
         viewModel.fetchPlaces()
@@ -43,7 +43,7 @@ final class PlaceListViewModelTests: XCTestCase {
     func testFetchPlaces_whenRepositoryThrowsError_setsLoadingStateToError() async  {
         // Arrange
         let error = PlaceListRepositoryError.unableToParseResponse
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(error: error), wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(error: error), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
 
         // Act
         viewModel.fetchPlaces()
@@ -57,7 +57,7 @@ final class PlaceListViewModelTests: XCTestCase {
         let places: [Place] = [
             .init(name: "Amsterdam", latitude: 52.3547498, longitude: 4.8339215)
         ]
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
 
         // Act
         viewModel.fetchPlaces()
@@ -72,7 +72,7 @@ final class PlaceListViewModelTests: XCTestCase {
         let places: [Place] = [
             .init(name: "", latitude: 40.4380638, longitude: -3.7495758)
         ]
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: places), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
 
         // Act
         viewModel.fetchPlaces()
@@ -86,7 +86,7 @@ final class PlaceListViewModelTests: XCTestCase {
         // Arrange
         let place: Place = .init(name: "Amsterdam", latitude: 52.3547498, longitude: 4.8339215)
         let wikipediaDeepLinkOpenerMock = WikipediaDeepLinkOpenerMock()
-        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: [place]), wikipedia: wikipediaDeepLinkOpenerMock)
+        let viewModel = PlaceListViewModel(repository: PlaceListRepositoryMock(places: [place]), wikipedia: wikipediaDeepLinkOpenerMock, coordinator: PlaceListCoordinatorMock())
 
         // Act
         viewModel.fetchPlaces()

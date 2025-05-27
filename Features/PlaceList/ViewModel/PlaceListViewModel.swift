@@ -11,10 +11,15 @@ public final class PlaceListViewModel: ObservableObject {
     
     let repository: PlaceListRepositoryProtocol
     let wikipedia: WikipediaDeepLinkOpenerProtocol
-    
-    public init(repository: PlaceListRepositoryProtocol, wikipedia: WikipediaDeepLinkOpenerProtocol) {
+    weak var coordinator: PlaceListCoordinatorProtocol?
+
+    public init(repository: PlaceListRepositoryProtocol,
+                wikipedia: WikipediaDeepLinkOpenerProtocol,
+                coordinator: PlaceListCoordinatorProtocol
+    ) {
         self.repository = repository
         self.wikipedia = wikipedia
+        self.coordinator = coordinator
     }
     
     @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: "placelist.message.loading".localized, places: [])
@@ -59,8 +64,12 @@ public final class PlaceListViewModel: ObservableObject {
             }
         }
     }
-    
+
     func tryOwnPlaceTapped() {
-        
+        guard let coordinator = coordinator else {
+            assertionFailure()
+            return
+        }
+        coordinator.showCustomPlace()
     }
 }

@@ -77,5 +77,8 @@ public struct PlaceListView: View {
 }
 
 #Preview {
-    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub(), wikipedia: WikipediaDeepLinkOpenerStub()))
+    PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepositoryStub(),
+                                                wikipedia: WikipediaDeepLinkOpenerStub(),
+                                                coordinator: PlaceListCoordinatorStub())
+    )
 }

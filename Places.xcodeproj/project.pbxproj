@@ -107,6 +107,7 @@
 			membershipExceptions = (
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
+				PlaceListTests/Mocks/PlaceListCoordinatorMock.swift,
 				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
 				PlaceListTests/Mocks/WikipediaDeepLinkOpenerMock.swift,
@@ -120,6 +121,7 @@
 			membershipExceptions = (
 				PlaceList/Entity/Place.swift,
 				PlaceList/Entity/PlaceListResponse.swift,
+				PlaceList/PlaceListCoordinatorProtocol.swift,
 				PlaceList/Repository/PlaceListRepository.swift,
 				PlaceList/Repository/PlaceListRepositoryProtocol.swift,
 				PlaceList/ViewModel/PlaceListViewModel.swift,
@@ -127,6 +129,7 @@
 				PlaceList/WikipediaDeepLinkOpenerProtocol.swift,
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
+				PlaceListTests/Mocks/PlaceListCoordinatorMock.swift,
 				PlaceListTests/Mocks/PlaceListRepositoryMock.swift,
 				"PlaceListTests/Mocks/String+LocalizedMock.swift",
 				PlaceListTests/Mocks/WikipediaDeepLinkOpenerMock.swift,
