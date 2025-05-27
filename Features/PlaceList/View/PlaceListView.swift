@@ -19,7 +19,9 @@ public struct PlaceListView: View {
         VStack {
             title
             button
+            Spacer()
             list
+            Spacer()
         }
         .onAppear {
             viewModel.fetchPlaces()
@@ -31,7 +33,6 @@ public struct PlaceListView: View {
         Text(localized: "placelist.title")
             .font(.largeTitle)
             .fontWeight(.bold)
-            .padding(.top)
         Text(localized: "placelist.subtitle")
             .font(.caption)
             .fontWeight(.bold)
