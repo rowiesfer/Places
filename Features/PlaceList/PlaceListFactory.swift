@@ -8,12 +8,17 @@
 import Foundation
 import PlacesAPI
 
-public struct PlaceListFactory {
-    
-    public init() {}
-    
-    // Poor man's dependency injection for now.
-    @MainActor public func newPlaceListView(baseURL: URL, wikipedia: WikipediaDeepLinkOpenerProtocol) -> PlaceListView {
+public final class PlaceListFactory {
+
+    private let baseURL: URL
+    private let wikipedia: WikipediaDeepLinkOpenerProtocol
+
+    public init(baseURL: URL, wikipedia: WikipediaDeepLinkOpenerProtocol) {
+        self.baseURL = baseURL
+        self.wikipedia = wikipedia
+    }
+
+    @MainActor public func newPlaceListView() -> PlaceListView {
         let apiClient = PlacesAPIClient(baseURL: baseURL)
         return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient), wikipedia: wikipedia))
     }
