@@ -1,6 +1,78 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "customplace.button.wikipedia" : {
+      "comment" : "Button to open a custom place in wikipedia",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Wikipedia"
+          }
+        }
+      }
+    },
+    "customplace.latitude.placeholder" : {
+      "comment" : "Placeholder text for the latitude input",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "latitude"
+          }
+        }
+      }
+    },
+    "customplace.longitude.placeholder" : {
+      "comment" : "Placeholder text for the longitude input",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "longitude"
+          }
+        }
+      }
+    },
+    "customplace.name.placeholder" : {
+      "comment" : "Placeholder text for the name input",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "name"
+          }
+        }
+      }
+    },
+    "customplace.subtitle" : {
+      "comment" : "Subtitle of the Custom Place view",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the name, latitude and longitude of a place manually"
+          }
+        }
+      }
+    },
+    "customplace.title" : {
+      "comment" : "Title of the Custom Place view",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try your place"
+          }
+        }
+      }
+    },
     "placelist.button.customplace" : {
       "comment" : "Button in the header to try your own place data",
       "extractionState" : "manual",

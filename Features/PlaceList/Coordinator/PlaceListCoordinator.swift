@@ -33,7 +33,13 @@ public final class PlaceListCoordinator {
     }
     
     fileprivate func pushCustomPlaceView() {
-        
+        guard let navigationController = navigationController else {
+            assertionFailure()
+            return
+        }
+        let customPlaceView = factory.customPlaceView(coordinator: self)
+        let customPlaceVC = UIHostingController(rootView: customPlaceView)
+        navigationController.pushViewController(customPlaceVC, animated: true)
     }
 }
 

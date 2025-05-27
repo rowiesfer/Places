@@ -22,5 +22,9 @@ public final class PlaceListFactory {
         let apiClient = PlacesAPIClient(baseURL: baseURL)
         return PlaceListView(viewModel: PlaceListViewModel(repository: PlaceListRepository(client: apiClient), wikipedia: wikipedia, coordinator: coordinator))
     }
+    
+    @MainActor public func customPlaceView(coordinator: PlaceListCoordinatorProtocol) -> CustomPlaceView {
+        return CustomPlaceView()
+    }
 
 }
