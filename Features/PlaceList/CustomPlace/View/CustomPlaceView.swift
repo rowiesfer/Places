@@ -27,6 +27,7 @@ public struct CustomPlaceView: View {
         Text(localized: "customplace.title")
             .font(.largeTitle)
             .fontWeight(.bold)
+            .accessibilityIdentifier("customplace.title")
         Text(localized: "customplace.subtitle")
             .font(.caption)
             .fontWeight(.bold)

@@ -462,6 +462,7 @@
 					};
 					C16E66952DE0BBDC00697384 = {
 						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 1630;
 						TestTargetID = C16E667E2DE0BBDA00697384;
 					};
 					C16E66AD2DE0C01800697384 = {
@@ -821,6 +822,7 @@
 		C16E66A72DE0BBDC00697384 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -828,6 +830,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jfrowies.PlacesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Places;
@@ -837,6 +840,7 @@
 		C16E66A82DE0BBDC00697384 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

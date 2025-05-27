@@ -33,6 +33,7 @@ public struct PlaceListView: View {
         Text(localized: "placelist.title")
             .font(.largeTitle)
             .fontWeight(.bold)
+            .accessibilityIdentifier("placelist.title")
         Text(localized: "placelist.subtitle")
             .font(.caption)
             .fontWeight(.bold)
@@ -45,6 +46,7 @@ public struct PlaceListView: View {
         }
         .font(.caption)
         .fontWeight(.bold)
+        .accessibilityIdentifier("placelist.button.customplace")
     }
     
     @ViewBuilder
