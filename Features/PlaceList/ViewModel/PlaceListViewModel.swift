@@ -59,4 +59,8 @@ public final class PlaceListViewModel: ObservableObject {
             }
         }
     }
+    
+    func tryOwnPlaceTapped() {
+        
+    }
 }

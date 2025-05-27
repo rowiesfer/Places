@@ -1,6 +1,30 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "placelist.button.customplace" : {
+      "comment" : "Button in the header to try your own place data",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "or tap here to try your own place"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "o toca aquí para probar tu propio lugar"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "of tik hier om je eigen plaats te proberen"
+          }
+        }
+      }
+    },
     "placelist.message.error" : {
       "comment" : "Message to show while loading places",
       "extractionState" : "manual",

@@ -18,7 +18,7 @@ public struct PlaceListView: View {
     public var body: some View {
         VStack {
             title
-            Spacer()
+            button
             list
         }
         .onAppear {
@@ -35,6 +35,15 @@ public struct PlaceListView: View {
         Text(localized: "placelist.subtitle")
             .font(.caption)
             .fontWeight(.bold)
+    }
+    
+    @ViewBuilder
+    private var button: some View {
+        Button("placelist.button.customplace".localized) {
+            viewModel.tryOwnPlaceTapped()
+        }
+        .font(.caption)
+        .fontWeight(.bold)
     }
     
     @ViewBuilder
