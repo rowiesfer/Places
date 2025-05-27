@@ -11,6 +11,12 @@ public struct CustomPlaceView: View {
     @State private var placeName: String = ""
     @State private var latitude: String = ""
     @State private var longitude: String = ""
+    
+    @ObservedObject var viewModel: CustomPlaceViewModel
+
+    public init(viewModel: CustomPlaceViewModel) {
+        self.viewModel = viewModel
+    }
 
     public var body: some View {
         VStack(spacing: 16) {
@@ -51,7 +57,7 @@ public struct CustomPlaceView: View {
     @ViewBuilder
     private var button: some View {
         Button("customplace.button.wikipedia".localized) {
-            // call view model
+            viewModel.openPlaceInWikipedia(name: placeName, latitude: latitude, longitude: longitude)
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -62,6 +68,5 @@ public struct CustomPlaceView: View {
 }
 
 #Preview {
-    CustomPlaceView()
+    CustomPlaceView(viewModel: CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerStub()))
 }
-

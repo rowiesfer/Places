@@ -105,6 +105,7 @@
 		C16E672A2DE1EAD900697384 /* Exceptions for "Features" folder in "PlaceList" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				PlaceListTests/CustomPlaceViewModelTests.swift,
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
 				PlaceListTests/Mocks/PlaceListCoordinatorMock.swift,
@@ -120,6 +121,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				PlaceList/Coordinator/PlaceListCoordinatorProtocol.swift,
+				PlaceList/CustomPlace/ViewModel/CustomPlaceViewModel.swift,
 				PlaceList/DeepLink/WikipediaDeepLinkOpenerProtocol.swift,
 				PlaceList/List/Entity/Place.swift,
 				PlaceList/List/Entity/PlaceListResponse.swift,
@@ -127,6 +129,7 @@
 				PlaceList/List/Repository/PlaceListRepositoryProtocol.swift,
 				PlaceList/List/ViewModel/PlaceListViewModel.swift,
 				PlaceList/List/ViewModel/PlaceListViewState.swift,
+				PlaceListTests/CustomPlaceViewModelTests.swift,
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
 				PlaceListTests/Mocks/PlaceListCoordinatorMock.swift,

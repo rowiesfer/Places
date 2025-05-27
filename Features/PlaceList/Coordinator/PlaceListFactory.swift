@@ -24,7 +24,7 @@ public final class PlaceListFactory {
     }
     
     @MainActor public func customPlaceView(coordinator: PlaceListCoordinatorProtocol) -> CustomPlaceView {
-        return CustomPlaceView()
+        return CustomPlaceView(viewModel: CustomPlaceViewModel(wikipedia: wikipedia))
     }
 
 }
