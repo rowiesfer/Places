@@ -119,14 +119,14 @@
 		C16E679A2DE2059E00697384 /* Exceptions for "Features" folder in "PlaceListTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				PlaceList/Entity/Place.swift,
-				PlaceList/Entity/PlaceListResponse.swift,
-				PlaceList/PlaceListCoordinatorProtocol.swift,
-				PlaceList/Repository/PlaceListRepository.swift,
-				PlaceList/Repository/PlaceListRepositoryProtocol.swift,
-				PlaceList/ViewModel/PlaceListViewModel.swift,
-				PlaceList/ViewModel/PlaceListViewState.swift,
-				PlaceList/WikipediaDeepLinkOpenerProtocol.swift,
+				PlaceList/Coordinator/PlaceListCoordinatorProtocol.swift,
+				PlaceList/DeepLink/WikipediaDeepLinkOpenerProtocol.swift,
+				PlaceList/List/Entity/Place.swift,
+				PlaceList/List/Entity/PlaceListResponse.swift,
+				PlaceList/List/Repository/PlaceListRepository.swift,
+				PlaceList/List/Repository/PlaceListRepositoryProtocol.swift,
+				PlaceList/List/ViewModel/PlaceListViewModel.swift,
+				PlaceList/List/ViewModel/PlaceListViewState.swift,
 				PlaceListTests/locations.json,
 				PlaceListTests/Mocks/PlaceAPIClientMock.swift,
 				PlaceListTests/Mocks/PlaceListCoordinatorMock.swift,
@@ -148,15 +148,15 @@
 		C17646DA2DE51DB8005E581A /* Exceptions for "Features" folder in "PlacesTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				PlaceList/WikipediaDeepLinkOpenerProtocol.swift,
+				PlaceList/DeepLink/WikipediaDeepLinkOpenerProtocol.swift,
 			);
 			target = C17646CC2DE51756005E581A /* PlacesTests */;
 		};
 		C17646DE2DE51E76005E581A /* Exceptions for "Places" folder in "PlacesTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Infrastructure/DeepLinkOpenerProtocol.swift,
-				WikipediaDeepLinkOpener.swift,
+				DeepLink/DeepLinkOpenerProtocol.swift,
+				DeepLink/WikipediaDeepLinkOpener.swift,
 			);
 			target = C17646CC2DE51756005E581A /* PlacesTests */;
 		};
