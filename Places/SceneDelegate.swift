@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
+        let baseURL = Configuration.assignmentURL
         let navigationController = UINavigationController()
-        let baseURL = URL(string: "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main")!
         let wikipedia = WikipediaDeepLinkOpener(deepLinkOpener: DeepLinkOpener())
         let placeListFactory = PlaceListFactory(baseURL: baseURL, wikipedia: wikipedia)
         coordinator = PlaceListCoordinator(navigationController: navigationController, factory: placeListFactory)
