@@ -8,6 +8,11 @@
 import UIKit
 import SwiftUI
 
+fileprivate enum Constants {
+    static let errorTitle = "Error"
+    static let actionOK = "OK"
+}
+
 @MainActor
 public final class PlaceListCoordinator {
     weak var navigationController: UINavigationController?
@@ -50,7 +55,14 @@ extension PlaceListCoordinator: PlaceListCoordinatorProtocol {
     }
     
     public func showError(localizedMessage: String) {
-        
+        guard let navigationController = navigationController else {
+            assertionFailure("Navigation controller is nil.")
+            return
+        }
+        let alertController = UIAlertController(title: Constants.errorTitle,
+                                                message: localizedMessage,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Constants.actionOK, style: .default))
+        navigationController.present(alertController, animated: true)
     }
 }
-

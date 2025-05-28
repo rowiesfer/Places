@@ -11,6 +11,8 @@ fileprivate enum Constants {
     static let errorMessage = "placelist.message.error"
     static let latitudeKey = "placelist.place.latitude"
     static let longitudeKey = "placelist.place.longitude"
+    static let errorTappingPlace = "placelist.error.tappingplace"
+    static let errorDeeplink = "placelist.error.deeplink"
 }
 
 @MainActor
@@ -68,7 +70,7 @@ public final class PlaceListViewModel: ObservableObject {
 
     func placeTapped(id: String) {
         guard let place = places.filter({ $0.id == id }).first else {
-            // TODO: show error
+            coordinator?.showError(localizedMessage: Constants.errorTappingPlace.localized)
             return
         }
         deepLinkTask?.cancel()
@@ -76,7 +78,7 @@ public final class PlaceListViewModel: ObservableObject {
             do {
                 try await wikipedia.deepLinkToPlaces(name: place.name, latitude: place.latitude, longitude: place.longitude)
             } catch {
-                // TODO: show error
+                coordinator?.showError(localizedMessage: Constants.errorDeeplink.localized)
             }
         }
     }
