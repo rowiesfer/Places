@@ -18,7 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else {
+            // Using precondition failure with a message since this situation is unrecoverable.
+            // This will be catch by UI tests.
+            preconditionFailure("UIWindowScene not found.")
+        }
 
         let baseURL = Configuration.assignmentURL
         let navigationController = UINavigationController()
@@ -28,6 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator.start()
 
         window = UIWindow(windowScene: windowScene)
+        guard window != nil else {
+            // Using precondition failure with a message since this situation is unrecoverable.
+            // This will be catch by UI tests.
+            preconditionFailure("UIWindow not found.")
+        }
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
     }
