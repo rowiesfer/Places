@@ -8,7 +8,7 @@
 import Foundation
 import PlaceList
 
-struct WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
+final class WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
 
     private let deepLinkOpener: DeepLinkOpenerProtocol
 
