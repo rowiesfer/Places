@@ -10,6 +10,18 @@
             "state" : "translated",
             "value" : "Open in Wikipedia"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir en Wikipedia"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Openen in Wikipedia"
+          }
         }
       }
     },
@@ -21,6 +33,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "latitude"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "latitud"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breedtegraad"
           }
         }
       }
@@ -34,6 +58,18 @@
             "state" : "translated",
             "value" : "longitude"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "longitud"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lengtegraad"
+          }
         }
       }
     },
@@ -45,6 +81,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "nombre"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naam"
           }
         }
       }
@@ -58,6 +106,18 @@
             "state" : "translated",
             "value" : "Enter the name, latitude and longitude of a place manually"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe nombre, latitud y longitud de tu lugar"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voer handmatig de naam, breedtegraad en lengtegraad van een plaats in"
+          }
         }
       }
     },
@@ -69,6 +129,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try your place"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prueba tu lugar"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probeer jouw plaats"
           }
         }
       }
