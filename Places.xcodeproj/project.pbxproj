@@ -16,6 +16,8 @@
 		C16E69212DE2918C00697384 /* PlacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16E690B2DE2870500697384 /* PlacesAPI.framework */; };
 		C16E69262DE292F000697384 /* PlacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16E690B2DE2870500697384 /* PlacesAPI.framework */; };
 		C17646E22DE52129005E581A /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C17646E12DE52129005E581A /* Nimble */; };
+		C1FC13852DE72B790005DB0C /* Places.docc in Sources */ = {isa = PBXBuildFile; fileRef = C1FC13842DE72B790005DB0C /* Places.docc */; };
+		C1FC13862DE72B790005DB0C /* Places.docc in Sources */ = {isa = PBXBuildFile; fileRef = C1FC13842DE72B790005DB0C /* Places.docc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		C16E66B62DE0C01900697384 /* PlaceListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaceListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C16E690B2DE2870500697384 /* PlacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17646CD2DE51756005E581A /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FC12892DE7175A0005DB0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C1FC13842DE72B790005DB0C /* Places.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Places.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -258,6 +262,8 @@
 		C16E66762DE0BBDA00697384 = {
 			isa = PBXGroup;
 			children = (
+				C1FC13842DE72B790005DB0C /* Places.docc */,
+				C1FC12892DE7175A0005DB0C /* README.md */,
 				C16E66812DE0BBDA00697384 /* Places */,
 				C17646CE2DE51756005E581A /* PlacesTests */,
 				C16E66992DE0BBDC00697384 /* PlacesUITests */,
@@ -563,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FC13862DE72B790005DB0C /* Places.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FC13852DE72B790005DB0C /* Places.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
