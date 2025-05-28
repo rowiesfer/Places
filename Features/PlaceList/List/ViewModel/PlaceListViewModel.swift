@@ -12,7 +12,9 @@ public final class PlaceListViewModel: ObservableObject {
     let repository: PlaceListRepositoryProtocol
     let wikipedia: WikipediaDeepLinkOpenerProtocol
     weak var coordinator: PlaceListCoordinatorProtocol?
-
+    var deepLinkTask: Task<Void, Error>? = nil
+    var fetchPlacesTask: Task<Void, Error>? = nil
+    
     public init(repository: PlaceListRepositoryProtocol,
                 wikipedia: WikipediaDeepLinkOpenerProtocol,
                 coordinator: PlaceListCoordinatorProtocol
@@ -22,11 +24,18 @@ public final class PlaceListViewModel: ObservableObject {
         self.coordinator = coordinator
     }
     
+    deinit {
+        deepLinkTask?.cancel()
+        fetchPlacesTask?.cancel()
+    }
+
+    
     @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: "placelist.message.loading".localized, places: [])
     private var places: [Place] = []
     
     func fetchPlaces() {
-        Task {
+        fetchPlacesTask?.cancel()
+        fetchPlacesTask = Task {
             do {
                 places = try await repository.getPlaceList()
                 viewState = .init(loadingState: .success,
@@ -55,8 +64,8 @@ public final class PlaceListViewModel: ObservableObject {
             // TODO: show error
             return
         }
-
-        Task {
+        deepLinkTask?.cancel()
+        deepLinkTask = Task {
             do {
                 try await wikipedia.deepLinkToPlaces(name: place.name, latitude: place.latitude, longitude: place.longitude)
             } catch {

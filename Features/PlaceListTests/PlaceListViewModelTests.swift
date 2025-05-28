@@ -98,6 +98,71 @@ final class PlaceListViewModelTests: XCTestCase {
         await expect(wikipediaDeepLinkOpenerMock.latitude).toEventually(equal(place.latitude))
         await expect(wikipediaDeepLinkOpenerMock.longitude).toEventually(equal(place.longitude))
     }
+    
+    func testDeinit_whenDeepLinkTaskIsRunning_cancelsTheTask() async {
+        // Arrange
+        let ongoingtask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        var viewModel: PlaceListViewModel? = PlaceListViewModel(repository: PlaceListRepositoryMock(), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
+        viewModel!.deepLinkTask = ongoingtask
+    
+        // Act
+        viewModel = nil
 
+        // Assert
+        await expect(ongoingtask?.isCancelled).toEventually(beTrue())
+    }
+
+    func testDeinit_whenFetchPlacesTaskIsRunning_cancelsTheTask() async {
+        // Arrange
+        let ongoingTask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        var viewModel: PlaceListViewModel? = PlaceListViewModel(repository: PlaceListRepositoryMock(), wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
+        viewModel!.fetchPlacesTask = ongoingTask
+    
+        // Act
+        viewModel = nil
+
+        // Assert
+        await expect(ongoingTask!.isCancelled).toEventually(beTrue())
+    }
+    
+    func testOpenPlaceInWikipedia_whenDeepLinkTaskIsRunning_cancelsTheTask() async {
+        // Arrange
+        let place: Place = .init(name: "Amsterdam", latitude: 52.3547498, longitude: 4.8339215)
+        let wikipediaDeepLinkOpenerMock = WikipediaDeepLinkOpenerMock()
+
+        let ongoingTask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        let viewModel: PlaceListViewModel? = PlaceListViewModel(repository: PlaceListRepositoryMock(places: [place]), wikipedia: wikipediaDeepLinkOpenerMock, coordinator: PlaceListCoordinatorMock())
+        viewModel!.deepLinkTask = ongoingTask
+        
+        // Act
+        viewModel!.fetchPlaces()
+        await expect(viewModel!.viewState.places.count).toEventually(equal(1))
+        viewModel!.placeTapped(id: viewModel!.viewState.places.first!.id)
+
+        // Assert
+        await expect(ongoingTask!.isCancelled).toEventually(beTrue())
+    }
+    
+    func testFetchPlaces_whenFetchPlacesTaskIsRunnin_cancelsTheTask() async {
+        // Arrange
+        let wikipediaDeepLinkOpenerMock = WikipediaDeepLinkOpenerMock()
+
+        let ongoingTask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        let viewModel: PlaceListViewModel? = PlaceListViewModel(repository: PlaceListRepositoryMock(places: []), wikipedia: wikipediaDeepLinkOpenerMock, coordinator: PlaceListCoordinatorMock())
+        viewModel!.fetchPlacesTask = ongoingTask
+    
+        // Act
+        viewModel!.fetchPlaces()
+
+        // Assert
+        await expect(ongoingTask!.isCancelled).toEventually(beTrue())
+    }
 }
-
