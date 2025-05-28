@@ -7,6 +7,10 @@
 
 import Combine
 
+fileprivate enum Constants {
+    static let errorDeeplink = "customplace.error.deeplink"
+}
+
 enum CoordinateValidationError: String, Error {
     case emptyLatitude = "customplace.error.emptyLatitude"
     case emptyLongitude = "customplace.error.emptyLongitude"
@@ -18,10 +22,13 @@ enum CoordinateValidationError: String, Error {
 public final class CustomPlaceViewModel: ObservableObject {
     
     let wikipedia: WikipediaDeepLinkOpenerProtocol
+    weak var coordinator: PlaceListCoordinatorProtocol?
     var deepLinkTask: Task<Void, Error>? = nil
 
-    public init(wikipedia: WikipediaDeepLinkOpenerProtocol) {
+    public init(wikipedia: WikipediaDeepLinkOpenerProtocol,
+                coordinator: PlaceListCoordinatorProtocol) {
         self.wikipedia = wikipedia
+        self.coordinator = coordinator
     }
 
     deinit {
@@ -34,8 +41,8 @@ public final class CustomPlaceViewModel: ObservableObject {
         do {
             coordinates = try convertToCoordinates(latitudeString: latitude, longitudeString: longitude)
         } catch {
-            // TODO: show error
-        return
+            coordinator?.showError(localizedMessage: error.localizedDescription)
+            return
         }
 
         deepLinkTask?.cancel()
@@ -43,7 +50,7 @@ public final class CustomPlaceViewModel: ObservableObject {
             do {
                 try await wikipedia.deepLinkToPlaces(name: name, latitude: coordinates.latitude, longitude: coordinates.longitude)
             } catch {
-                // TODO: show error
+                coordinator?.showError(localizedMessage: Constants.errorDeeplink.localized)
             }
         }
     }

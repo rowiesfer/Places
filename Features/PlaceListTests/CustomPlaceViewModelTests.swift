@@ -15,7 +15,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         // Arrange
         let latitudeString = "onetwothree"
         let longitudeString = "52.3547498"
-        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
         
         // Act and Assert
         expect {
@@ -27,7 +27,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         // Arrange
         let latitudeString = "4.8339215"
         let longitudeString = "onetwothree"
-        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
         
         // Act and Assert
         expect {
@@ -39,7 +39,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         // Arrange
         let latitudeString = "4.8339215"
         let longitudeString = "52.3547498"
-        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
         var coordinates: (latitude: Double, longitude: Double) = (0.0, 0.0)
         
         // Act
@@ -57,7 +57,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         // Arrange
         let latitudeString = "40.4380638"
         let longitudeString = "-3.7495758"
-        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock())
+        let viewModel = CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerMock(), coordinator: PlaceListCoordinatorMock())
         var coordinates: (latitude: Double, longitude: Double) = (0.0, 0.0)
         
         // Act
@@ -77,7 +77,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         let longitudeString = "-3.7495758"
         let placeName = "Amsterdam"
         let wikipedia = WikipediaDeepLinkOpenerMock()
-        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia)
+        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia, coordinator: PlaceListCoordinatorMock())
         
         // Act
         viewModel.openPlaceInWikipedia(name: placeName, latitude: latitudeString, longitude: longitudeString)
@@ -94,7 +94,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         let longitudeString = "-3.7495758"
         let placeName = ""
         let wikipedia = WikipediaDeepLinkOpenerMock()
-        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia)
+        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia, coordinator: PlaceListCoordinatorMock())
         
         // Act
         viewModel.openPlaceInWikipedia(name: placeName, latitude: latitudeString, longitude: longitudeString)
@@ -112,7 +112,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         let longRunningTask: Task<Void, Error>? = Task {
             try? await Task.sleep(nanoseconds: 3_000_000_000)
         }
-        var viewModel: CustomPlaceViewModel? = CustomPlaceViewModel(wikipedia: wikipedia)
+        var viewModel: CustomPlaceViewModel? = CustomPlaceViewModel(wikipedia: wikipedia, coordinator: PlaceListCoordinatorMock())
         viewModel!.deepLinkTask = longRunningTask
         
         // Act
@@ -132,7 +132,7 @@ final class CustomPlaceViewModelTests: XCTestCase {
         let longRunningTask: Task<Void, Error>? = Task {
             try? await Task.sleep(nanoseconds: 3_000_000_000)
         }
-        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia)
+        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia, coordinator: PlaceListCoordinatorMock())
         viewModel.deepLinkTask = longRunningTask
         
         // Act

@@ -77,5 +77,5 @@ public struct CustomPlaceView: View {
 }
 
 #Preview {
-    CustomPlaceView(viewModel: CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerStub()))
+    CustomPlaceView(viewModel: CustomPlaceViewModel(wikipedia: WikipediaDeepLinkOpenerStub(), coordinator: PlaceListCoordinatorStub()))
 }
