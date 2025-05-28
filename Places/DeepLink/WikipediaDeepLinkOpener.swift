@@ -8,6 +8,14 @@
 import Foundation
 import PlaceList
 
+private enum Constants {
+    static let scheme = "wikipedia://"
+    static let host = "places"
+    static let lat = "lat"
+    static let lon = "lon"
+    static let name = "name"
+}
+
 final class WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
 
     private let deepLinkOpener: DeepLinkOpenerProtocol
@@ -18,9 +26,11 @@ final class WikipediaDeepLinkOpener: WikipediaDeepLinkOpenerProtocol {
 
     @MainActor func deepLinkToPlaces(name: String?, latitude: Double, longitude: Double) async throws {
 
-        var urlString = "wikipedia://places?lat=\(latitude)&lon=\(longitude)"
+        var urlString = "\(Constants.scheme)\(Constants.host)"
+        urlString.append("?\(Constants.lat)=\(latitude)")
+        urlString.append("&\(Constants.lon)=\(longitude)")
         if let name = name {
-            urlString.append("&name=\(name)")
+            urlString.append("&\(Constants.name)=\(name)")
         }
 
         guard let url = URL(string: urlString) else {

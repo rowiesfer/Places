@@ -6,6 +6,13 @@
 //
 import Combine
 
+fileprivate enum Constants {
+    static let loadingMessage = "placelist.message.loading"
+    static let errorMessage = "placelist.message.error"
+    static let latitudeKey = "placelist.place.latitude"
+    static let longitudeKey = "placelist.place.longitude"
+}
+
 @MainActor
 public final class PlaceListViewModel: ObservableObject {
     
@@ -30,7 +37,7 @@ public final class PlaceListViewModel: ObservableObject {
     }
 
     
-    @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: "placelist.message.loading".localized, places: [])
+    @Published var viewState: PlaceListViewState = .init(loadingState: .loading, messageText: Constants.loadingMessage.localized, places: [])
     private var places: [Place] = []
     
     func fetchPlaces() {
@@ -44,7 +51,7 @@ public final class PlaceListViewModel: ObservableObject {
             } catch {
                 places = []
                 viewState = .init(loadingState: .error,
-                                  messageText: "placelist.message.error".localized,
+                                  messageText: Constants.errorMessage.localized,
                                   places: [])
             }
         }
@@ -54,7 +61,7 @@ public final class PlaceListViewModel: ObservableObject {
         let placesViewData = places.map { place in
             return PlaceListViewState.PlaceViewData(id: place.id,
                                                     title: place.name ?? "",
-                                                    subtitle: "\("placelist.place.latitude".localized): \(place.latitude), \("placelist.place.longitude".localized): \(place.longitude)")
+                                                    subtitle: "\(Constants.latitudeKey.localized): \(place.latitude), \(Constants.longitudeKey.localized): \(place.longitude)")
         }
         return placesViewData
     }

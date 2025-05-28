@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+fileprivate enum Constants {
+    static let title = "customplace.title"
+    static let subtitle = "customplace.subtitle"
+    static let namePlaceholder = "customplace.name.placeholder"
+    static let latitudePlaceholder = "customplace.latitude.placeholder"
+    static let longitudePlaceholder = "customplace.longitude.placeholder"
+    static let buttonWikipedia = "customplace.button.wikipedia"
+}
+
 public struct CustomPlaceView: View {
     @State private var placeName: String = ""
     @State private var latitude: String = ""
@@ -30,33 +39,33 @@ public struct CustomPlaceView: View {
 
     @ViewBuilder
     private var title: some View {
-        Text(localized: "customplace.title")
+        Text(localized: Constants.title)
             .font(.largeTitle)
             .fontWeight(.bold)
-            .accessibilityIdentifier("customplace.title")
-        Text(localized: "customplace.subtitle")
+            .accessibilityIdentifier(Constants.title)
+        Text(localized: Constants.subtitle)
             .font(.caption)
             .fontWeight(.bold)
     }
 
     @ViewBuilder
     private var inputs: some View {
-        TextField("customplace.name.placeholder".localized, text: $placeName)
+        TextField(Constants.namePlaceholder.localized, text: $placeName)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(.default)
 
-        TextField("customplace.latitude.placeholder".localized, text: $latitude)
+        TextField(Constants.latitudePlaceholder.localized, text: $latitude)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(.decimalPad)
 
-        TextField("customplace.longitude.placeholder".localized, text: $longitude)
+        TextField(Constants.longitudePlaceholder.localized, text: $longitude)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(.decimalPad)
     }
 
     @ViewBuilder
     private var button: some View {
-        Button("customplace.button.wikipedia".localized) {
+        Button(Constants.buttonWikipedia.localized) {
             viewModel.openPlaceInWikipedia(name: placeName, latitude: latitude, longitude: longitude)
         }
         .padding()

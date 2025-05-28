@@ -7,6 +7,11 @@
 
 import Foundation
 
+fileprivate enum Constants {
+    static let accept = "Accept"
+    static let json = "application/json"
+}
+
 public class PlacesAPIClient: PlacesAPIClientProtocol {
 
     private let baseURL: URL
@@ -20,7 +25,7 @@ public class PlacesAPIClient: PlacesAPIClientProtocol {
         var request = URLRequest(url: baseURL.appending(path: request.path))
         request.httpMethod = request.httpMethod
         request.allHTTPHeaderFields = [
-            "Accept": "application/json"
+            Constants.accept: Constants.json
         ]
 
         let (data, response) = try await URLSession.shared.data(for: request)

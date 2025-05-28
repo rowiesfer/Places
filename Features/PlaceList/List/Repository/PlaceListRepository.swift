@@ -7,13 +7,18 @@
 import Foundation
 import PlacesAPI
 
+fileprivate enum Constants {
+    static let httpMethod = "GET"
+    static let path = "/locations.json"
+}
+
 struct PlaceListRepository: PlaceListRepositoryProtocol {
     
     @MainActor private let client: PlacesAPIClientProtocol
     
     private struct PlaceListRequest: PlacesAPIRequest {
-        let httpMethod = "GET"
-        let path = "/locations.json"
+        let httpMethod = Constants.httpMethod
+        let path = Constants.path
         var parameters: [String : String] = [:]
     }
     

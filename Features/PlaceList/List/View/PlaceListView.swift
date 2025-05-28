@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+fileprivate enum Constants {
+    static let title = "placelist.title"
+    static let subtitle = "placelist.subtitle"
+    static let buttonCustomPlace = "placelist.button.customplace"
+    static let accessibilityTitle = "placelist.title"
+    static let accessibilityButtonCustomPlace = "placelist.button.customplace"
+}
+
 public struct PlaceListView: View {
     
     @ObservedObject var viewModel: PlaceListViewModel
@@ -30,23 +38,23 @@ public struct PlaceListView: View {
     
     @ViewBuilder
     private var title: some View {
-        Text(localized: "placelist.title")
+        Text(localized: Constants.title)
             .font(.largeTitle)
             .fontWeight(.bold)
-            .accessibilityIdentifier("placelist.title")
-        Text(localized: "placelist.subtitle")
+            .accessibilityIdentifier(Constants.accessibilityTitle)
+        Text(localized: Constants.subtitle)
             .font(.caption)
             .fontWeight(.bold)
     }
     
     @ViewBuilder
     private var button: some View {
-        Button("placelist.button.customplace".localized) {
+        Button(Constants.buttonCustomPlace.localized) {
             viewModel.tryOwnPlaceTapped()
         }
         .font(.caption)
         .fontWeight(.bold)
-        .accessibilityIdentifier("placelist.button.customplace")
+        .accessibilityIdentifier(Constants.accessibilityButtonCustomPlace)
     }
     
     @ViewBuilder
