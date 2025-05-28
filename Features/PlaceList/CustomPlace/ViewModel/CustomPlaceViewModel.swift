@@ -18,9 +18,14 @@ enum CoordinateValidationError: String, Error {
 public final class CustomPlaceViewModel: ObservableObject {
     
     let wikipedia: WikipediaDeepLinkOpenerProtocol
+    var deepLinkTask: Task<Void, Error>? = nil
 
     public init(wikipedia: WikipediaDeepLinkOpenerProtocol) {
         self.wikipedia = wikipedia
+    }
+
+    deinit {
+        deepLinkTask?.cancel()
     }
 
     func openPlaceInWikipedia(name: String, latitude: String, longitude: String) {
@@ -33,7 +38,8 @@ public final class CustomPlaceViewModel: ObservableObject {
         return
         }
 
-        Task {
+        deepLinkTask?.cancel()
+        deepLinkTask = Task {
             do {
                 try await wikipedia.deepLinkToPlaces(name: name, latitude: coordinates.latitude, longitude: coordinates.longitude)
             } catch {

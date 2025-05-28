@@ -104,4 +104,41 @@ final class CustomPlaceViewModelTests: XCTestCase {
         await expect(wikipedia.latitude).toEventually(equal(40.4380638))
         await expect(wikipedia.longitude).toEventually(equal(-3.7495758))
     }
+    
+    func testDeinit_whenDeepLinkTaskIsRunning_cancelsTheTask() async {
+        // Arrange
+        let wikipedia = WikipediaDeepLinkOpenerMock()
+
+        let longRunningTask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        var viewModel: CustomPlaceViewModel? = CustomPlaceViewModel(wikipedia: wikipedia)
+        viewModel!.deepLinkTask = longRunningTask
+        
+        // Act
+        viewModel = nil
+        
+        // Assert
+        await expect(longRunningTask?.isCancelled).toEventually(beTrue())
+    }
+    
+    func test_openPlaceInWikipedia_whenDeepLinkTaskIsRunning_cancelsTheTask() async {
+        // Arrange
+        let latitudeString = "40.4380638"
+        let longitudeString = "-3.7495758"
+        let placeName = "Amsterdam"
+        let wikipedia = WikipediaDeepLinkOpenerMock()
+
+        let longRunningTask: Task<Void, Error>? = Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
+        }
+        let viewModel = CustomPlaceViewModel(wikipedia: wikipedia)
+        viewModel.deepLinkTask = longRunningTask
+        
+        // Act
+        viewModel.openPlaceInWikipedia(name: placeName, latitude: latitudeString, longitude: longitudeString)
+    
+        // Assert
+        await expect(longRunningTask?.isCancelled).toEventually(beTrue())
+    }
 }
